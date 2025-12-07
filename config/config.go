@@ -14,11 +14,12 @@ type Config struct {
 	AppSecret string
 	
 	// 其他配置
-	APIKey     string
-	SecretKey  string
+	APIKey      string
+	SecretKey   string
 	DatabaseURL string
-	AppEnv     string
-	Port       string
+	DatabasePath string // SQLite 数据库文件路径
+	AppEnv      string
+	Port        string
 }
 
 // Load 加载环境变量配置
@@ -35,11 +36,12 @@ func Load() *Config {
 		AppSecret: getEnv("APP_SECRET", ""),
 		
 		// 其他配置
-		APIKey:      getEnv("API_KEY", ""),
-		SecretKey:   getEnv("SECRET_KEY", ""),
-		DatabaseURL: getEnv("DATABASE_URL", ""),
-		AppEnv:      getEnv("APP_ENV", "development"),
-		Port:        getEnv("PORT", "8080"),
+		APIKey:       getEnv("API_KEY", ""),
+		SecretKey:    getEnv("SECRET_KEY", ""),
+		DatabaseURL:  getEnv("DATABASE_URL", ""),
+		DatabasePath: getEnv("DATABASE_PATH", "data/fin_bot.db"), // 默认数据库路径
+		AppEnv:       getEnv("APP_ENV", "development"),
+		Port:         getEnv("PORT", "8080"),
 	}
 }
 

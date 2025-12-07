@@ -21,6 +21,13 @@ go.work
 # Environment variables
 .env
 
+# Database
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
 # IDE
 .idea/
 .vscode/
